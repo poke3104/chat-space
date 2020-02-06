@@ -3,7 +3,7 @@
     .ide-bar__user-name__top-items__name
       = current_user.name
     .ide-bar__user-name__top-items__icons
-      = link_to "#", class:"icons__btn" do
+      = link_to new_group_path, class:"icons__btn" do
         = icon('fas', 'edit')
       = link_to edit_user_path(current_user), class:"icons__btn" do
         = icon('fas', 'cog')
@@ -18,3 +18,10 @@
       techcamp2
     .side-bar__group-list__n__group-message
       まだメッセージはありません
+  - current_user.groups.each do |group|
+    .group
+      = link_to '#' do
+        .group__name
+          = group.name
+          .group__message
+            メッセージはまだありません。
