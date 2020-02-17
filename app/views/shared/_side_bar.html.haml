@@ -8,20 +8,10 @@
       = link_to edit_user_path(current_user), class:"icons__btn" do
         = icon('fas', 'cog')
 .side-bar__group-list
-  .side-bar__group-list__n
-    .side-bar__group-list__n__group-name
-      techcamp
-    .side-bar__group-list__n__group-message
-      まだメッセージはありません
-  .side-bar__group-list__n
-    .side-bar__group-list__n__group-name
-      techcamp2
-    .side-bar__group-list__n__group-message
-      まだメッセージはありません
   - current_user.groups.each do |group|
-    .group
-      = link_to '#' do
-        .group__name
+    .side-bar__group-list__n
+      = link_to group_messages_path(group) do
+        .side-bar__group-list__n__group-name
           = group.name
-          .group__message
-            メッセージはまだありません。
+          .side-bar__group-list__n__group-message
+            = group.show_last_message

@@ -102,19 +102,25 @@
   background-color:#fafafa;
   height:calc(100vh - 100px - 90px);
   width: calc(100vw - 300px);
-  display: flex;
   justify-content: flex-start;
-  &__name{
+  &__message{
     padding-top:35px;
     font-size:16px;
     color:#333333;
     padding-left:40px;
     text-align:left;
   }
+  &__name{
+    font-size:16px;
+    color:#333333;
+    text-align:left;
+    float:left;
+    margin-right:10px;
+  }
   &__name_date{
     font-size:12px;
     color:#999999;
-    padding-top:35px;
+    margin-bottom:10px;
   }
 }
 .chat-main__message-form{
@@ -134,8 +140,10 @@
     position:relative;
     &__message{
       width:100%;
+      height:50px;
       #text-content{
         padding:0 40px 0 10px;
+        height:50px;
       }
     }
     &__photo{
@@ -149,7 +157,6 @@
   }
   &__send{
     float:right;
-    &__btn{
     height:50px;
     margin-right:40px;
     width:100px;
@@ -157,7 +164,7 @@
     color:white;
     text-align: center;
     line-height: 50px;
-    }
+    
   }
 }
 

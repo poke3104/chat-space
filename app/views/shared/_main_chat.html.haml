@@ -1,28 +1,28 @@
 .chat-main__group-info
   .chat-main__group-info__name
-    test
+    = @group.name
     .chat-main__group-info__name__member
-      member:name
+      member:
+      - @users.each do |user|
+        = user.name
   .chat-main__group-info__edit
     = link_to "#",class: "under-line" do
       .chat-main__group-info__edit__btn
-        Edit
+        = link_to edit_group_path(@group) do
+          Edit
 .chat-main__message-list
-  .chat-main__message-list__name
-    masa
-    .chat-main__message-list__messages
-      おはよう
-  .chat-main__message-list__name_date
-    2019/11/20(Wed)17:43:01
+  = render @messages
 .chat-main__message-form
   .chat-main__message-form__imput-form
     .chat-main__message-form__imput-form__message
-      %input{type: "text",class: "text-form",placeholder: "type a message", id: "text-content"}
-    .chat-main__message-form__imput-form__photo
-      %label{class: "input-box__image"}
-        = icon('fas', 'image')
-        %input{type: "file",class:"none"}
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'text-form', placeholder: 'type a message', id: 'text-content'
+        .chat-main__message-form__imput-form__photo
+          = f.label :image, class: 'input-box__image' do
+            = icon('fas', 'image')
+            = f.file_field :image, class:'none'
   .chat-main__message-form__send
-    = link_to "#",class: "send-line" do
-      .chat-main__message-form__send__btn
-        send
+    = form_for [@group, @message] do |f|
+      = f.submit 'Send', class: 'send-line' do
+        .chat-main__message-form__send__btn
+        
