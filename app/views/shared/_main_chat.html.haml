@@ -13,7 +13,6 @@
 .chat-main__message-list
   = render @messages
 .chat-main__message-form
-  -#   .chat-main__message-form__imput-form__message
   = form_for [@group, @message] do |f|
     .chat-main__message-form__imput-form
       = f.text_field :content, class: 'text-form', placeholder: 'type a message', id: 'text-content'
@@ -22,8 +21,4 @@
           = icon('fas', 'image')
           = f.file_field :image, class:'none'
     = f.submit 'Send', class: 'send-line'
-  -# .chat-main__message-form__send
-    -# = form_for [@group, @message] do |f|
-    -#   = f.submit 'Send', class: 'send-line' do
-    -#     .chat-main__message-form__send__btn
         

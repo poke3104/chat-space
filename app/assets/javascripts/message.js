@@ -13,9 +13,6 @@ $(function(){
         </p><p class="chat-main__message-list__messages">
           ${message.content}
         </p>
-        
-        <p></p>
-        <p></p>
           <img src=${message.image}>
        </div>`
       return html;
@@ -31,9 +28,6 @@ $(function(){
       </p><p class="chat-main__message-list__messages">
         ${message.content}
       </p>
-      
-      <p></p>
-      <p></p>
      </div>`
       return html;
     };
@@ -59,6 +53,9 @@ $(function(){
      })
      .fail(function(){
        alert('error');
+     })
+     .always(function(){
+       $('.send-line').prop('disabled',false);
      })
   });
 });
