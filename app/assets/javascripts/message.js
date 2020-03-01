@@ -48,7 +48,6 @@ $(function(){
        var html = buildHTML(data);
        $('.chat-main__message-list').append(html);
        $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
-       $('.send-line').prop('disabled', false);
        $('.new_message')[0].reset();
      })
      .fail(function(){
