@@ -1,10 +1,10 @@
 $(function(){
   function buildHTML(message){
-    if ( message.image ) {
+    if ( message.image) {
       var html =
        `<div class="message" data-message-id= ${message.id}>
         <p class="chat-main__message-list__name">
-          ${message.user.name}
+          ${message.user_name}
         </p>
         <p class="chat-main__message-list__name_date">
           ${message.created_at}
@@ -12,7 +12,7 @@ $(function(){
         </p><p class="chat-main__message-list__messages">
           ${message.content}
         </p>
-          <img src=${message.image}>
+        <img src="${message.image}">
        </div>`
       return html;
     } else {
@@ -39,6 +39,7 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
+    console.log(formData)
     var url = $(this).attr('action')
     $.ajax({
       url: url,
@@ -49,6 +50,7 @@ $(function(){
       contentType: false
     })
      .done(function(message){
+       console.log(message)
       var html = buildHTML(message);
         $('.chat-main__message-list').append(html);
        $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
@@ -67,6 +69,7 @@ $(function(){
 
   var reloadMessages = function() {
     var last_message_id = $('.message:last').data("message-id");
+    console.log(last_message_id)
     $.ajax({
       url: "api/messages",
       type: 'get',
@@ -88,6 +91,6 @@ $(function(){
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-    setInterval(reloadMessages, 3000);
+    // setInterval(reloadMessages, 7000);
   }
 });
