@@ -2,21 +2,25 @@
   box-sizing: border-box;
 }
 .side-bar__group-list{
-  color:white;
-  background-color: #253141;
+  color:#ffffff;
+  background-color: #2f3e51;
   width:300px;
   height:calc(100vh - 100px);
   text-align: center;
   float:left;
   margin-top:100px;
+  text-decoration: none;
   &__n{
     height:91px;
     margin-left:20px;
     margin-right:20px;
     text-align:left;
+    
     &__group-name{
       font-size:15px;
       margin-top:20px;
+      text-decoration: none;
+      color:#ffffff;
     }
     &__group-message{
       font-size:11px;
@@ -27,7 +31,7 @@
 }
 
 .side-bar__user-name{
-  background-color:#2f3e51;
+  background-color:#253141;
   height:100px;
   width:300px;
   position:fixed;
@@ -37,7 +41,7 @@
   line-height: 20px;
   color:white;
   &__top-items{
-    background-color:#2f3e51;
+    background-color:#253141;
     height:20px;
     width:260px;
     display:flex;
@@ -104,7 +108,7 @@
   width: calc(100vw - 300px);
   justify-content: flex-start;
   overflow: scroll;
-  &__message{
+  .message{
     padding-top:35px;
     font-size:16px;
     color:#333333;
